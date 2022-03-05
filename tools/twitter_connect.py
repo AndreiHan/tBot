@@ -1,10 +1,27 @@
 import tweepy
 import json
 
+from tools import twitter_message, status
+from tools.get_info import get_date
 from tools.key_mgmt import return_json
 
 
-def send_tweet():
+def send():
+    api = connect()
+    if api:
+        text = twitter_message.get_text()
+        try:
+            # api.update_status(text)
+            print("Twitter send successful")
+            status.set_content(text)
+            status.set_date(get_date())
+            return True
+        except FileNotFoundError:
+            pass
+        else: raise
+
+
+def connect():
     json_object = json.loads(return_json())
 
     # Authenticate to Twitter
@@ -17,9 +34,8 @@ def send_tweet():
     try:
         api.verify_credentials()
         print("Authentication OK")
-        # api.update_status("Test tweet from Tweepy Python")
+        return api
 
     except:
         print("Error during authentication")
-
-
+        return False

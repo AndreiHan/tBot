@@ -1,14 +1,13 @@
 import json
 
-from tools.file_mgmt import init_status
-from tools.get_info import get_date
+from tools import twitter_connect
+from tools.file_mgmt import init_status, check_status
 from tools.key_mgmt import encrypt_json, return_json
-from tools.twitter_connect import send_tweet
-from tools.twitter_message import get_text
 
 import sys
+
 # sys.stdout = open('logfile.txt', 'w')
 
 encrypt_json()
-init_status()
-send_tweet()
+check_status()
+twitter_connect.send()

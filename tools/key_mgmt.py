@@ -26,15 +26,16 @@ def encrypt_json():
             key = Fernet.generate_key()
             with open('storage/key.key', 'wb') as file:
                 file.write(key)
-
+                file.close()
             # this just opens your 'key.key' and assings the key stored there as 'key'
             with open('storage/key.key', 'rb') as file:
                 key = file.read()
-
+                file.close()
             # this opens your json and reads its data into a new variable called 'data'
             with open('storage/KEY.json', 'rb') as f:
                 data = f.read()
-
+                f.close()
+                os.remove('storage/KEY.json')
             # this encrypts the data read from your json and stores it in 'encrypted'
             fernet = Fernet(key)
             encrypted = fernet.encrypt(data)
@@ -42,8 +43,8 @@ def encrypt_json():
             # this writes your new, encrypted data into a new JSON file
             with open('storage/KEY-e.json', 'wb') as f:
                 f.write(encrypted)
+                f.close()
 
-            os.remove('storage/KEY.json')
         except FileNotFoundError as e:
             pass
     else:
