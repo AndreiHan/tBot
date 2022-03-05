@@ -1,16 +1,10 @@
-# This is a sample Python script.
+import json
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from tools.key_mgmt import encrypt_json, return_json
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+encrypt_json()
+json_object = json.loads(return_json())
+print(str(json_object["API Key"]))
+get_date()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
