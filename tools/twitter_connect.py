@@ -19,7 +19,7 @@ def send_tweet():
         print("Authentication OK")
         api.update_status("Test tweet from Tweepy Python")
 
-    except FileNotFoundError:
+    except:
         print("Error during authentication")
-    else: raise
+
 
