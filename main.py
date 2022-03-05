@@ -8,8 +8,4 @@ import sys
 # sys.stdout = open('logfile.txt', 'w')
 
 encrypt_json()
-json_object = json.loads(return_json())
-print(str(json_object["API_Key"]))
-print(str(json_object))
-
 send_tweet()
