@@ -14,7 +14,7 @@ def send():
             # api.update_status(text)
             print("Twitter send successful")
             status.set_content(text)
-            status.set_date(get_date())
+            status.set_time(get_date())
             return True
         except FileNotFoundError:
             pass

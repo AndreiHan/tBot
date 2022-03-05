@@ -1,7 +1,17 @@
 import json
 
+from tools import get_info
 
-def set_date(text):
+'''
+True if current date is the same as json date
+False if current date is different from json date
+'''
+
+def check_date():
+    with get_info.get_date() as current_date:
+        return get_time() == current_date
+
+def set_time(text):
     set_json(text, "Last_Tweet_Date")
 
 
@@ -13,7 +23,7 @@ def get_content():
     return get_data("Last_Content")
 
 
-def get_date():
+def get_time():
     return get_data("Last_Tweet_Date")
 
 
