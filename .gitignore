@@ -1,6 +1,5 @@
-storage/KEY.json
-storage/key.key
-storage/KEY-e.json
+storage
+storege/*
 logfile.txt
 
 ### Python template

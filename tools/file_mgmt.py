@@ -5,11 +5,11 @@ def init_status():
     create_file("storage/status.json")
     write_basic_json("storage/status.json")
 
-def write_basic_json(path):
 
-    status ={
-        "Content" : "none",
-        "Last Tweet Time" : "none"
+def write_basic_json(path):
+    status = {
+        "Content": "none",
+        "Last Tweet Time": "none"
     }
 
     json_object = json.dumps(status, indent=4)
@@ -17,6 +17,7 @@ def write_basic_json(path):
     # Writing to sample.json
     with open(path, "w") as outfile:
         outfile.write(json_object)
+
 
 def create_file(path):
     try:

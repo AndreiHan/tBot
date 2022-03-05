@@ -17,7 +17,7 @@ def send_tweet():
     try:
         api.verify_credentials()
         print("Authentication OK")
-        api.update_status("Test tweet from Tweepy Python")
+        # api.update_status("Test tweet from Tweepy Python")
 
     except:
         print("Error during authentication")
