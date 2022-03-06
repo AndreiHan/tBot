@@ -20,7 +20,6 @@ def send():
             print("Tweet send failed")
 
 
-
 def connect():
     json_object = json.loads(return_json())
 
