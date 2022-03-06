@@ -1,6 +1,6 @@
 storage
 storage/*
-logfile.txt
+logfile.log
 
 ### Python template
 # Byte-compiled / optimized / DLL files

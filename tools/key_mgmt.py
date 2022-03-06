@@ -45,7 +45,7 @@ def encrypt_json():
                 f.write(encrypted)
                 f.close()
 
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             pass
     else:
         pass

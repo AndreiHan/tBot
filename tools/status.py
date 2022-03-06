@@ -7,9 +7,10 @@ True if current date is the same as json date
 False if current date is different from json date
 '''
 
+
 def check_date():
-    with get_info.get_date() as current_date:
-        return get_time() == current_date
+    return get_time() == get_info.get_date()
+
 
 def set_time(text):
     set_json(text, "Last_Tweet_Date")
@@ -50,6 +51,7 @@ def set_json(text, key):
 
 def get_data(key):
     with open('storage/status.json', 'rb') as data:
-        json_object = data.read()
+        json_data = data.read()
+        json_object = json.loads(json_data)
         data.close()
     return json_object[key]

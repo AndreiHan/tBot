@@ -23,7 +23,7 @@ def init_status():
 def write_basic_json(path):
     status = {
         "Last_Content": "none",
-        "Last Tweet Time": "none"
+        "Last_Tweet_Date": "none"
     }
 
     json_object = json.dumps(status, indent=4)

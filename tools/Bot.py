@@ -1,9 +1,8 @@
-from datetime import time
+import time
 
-import tools.status
 from tools import twitter_connect, status
-from tools.file_mgmt import init_status, check_status, check_key
-from tools.key_mgmt import encrypt_json, return_json
+from tools.file_mgmt import check_status, check_key
+from tools.key_mgmt import encrypt_json
 
 
 class Bot:
@@ -20,4 +19,6 @@ class Bot:
             if status.check_date():
                 twitter_connect.send()
             else:
-                time.sleep(3)
+                print("")
+                print("Too soon...")
+                time.sleep(10)

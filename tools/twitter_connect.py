@@ -16,9 +16,9 @@ def send():
             status.set_content(text)
             status.set_time(get_date())
             return True
-        except FileNotFoundError:
-            pass
-        else: raise
+        except:
+            print("Tweet send failed")
+
 
 
 def connect():

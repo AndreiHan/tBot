@@ -1,8 +1,6 @@
 from tools.Bot import Bot
 
-import sys
-
-# sys.stdout = open('logfile.txt', 'w')
+# sys.stdout = open('logfile.log', 'w')
 
 bot = Bot()
 bot.main_loop()
