@@ -1,3 +1,5 @@
+import os
+
 from tools import bot_commands
 from tools.key_mgmt import create_json
 
@@ -26,7 +28,8 @@ def print_menu():
     menu_options = {
         1: 'Enter the keys manually (will delete previous config)',
         2: 'Already created KEY.json',
-        3: 'Exit'
+        3: 'Delete config',
+        4: 'Exit'
     }
     for key in menu_options.keys():
         print(key, '--', menu_options[key])
@@ -39,6 +42,12 @@ def clear():
     return subprocess.call(command, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT) == 0
 '''
 
+
+def purge_config():
+    os.remove("status.json")
+    os.remove("storage/KEY.json")
+    os.remove("storage/KEY-e.key")
+    os.remove("storage/key.key")
 
 def main_menu():
     while True:
@@ -60,7 +69,11 @@ def main_menu():
                     bot_commands.main_loop()
                 except FileNotFoundError:
                     print("\nFile not found... \n")
+
             elif option == 3:
+                purge_config()
+
+            elif option == 4:
                 print('Bye now!')
                 exit()
             else:
