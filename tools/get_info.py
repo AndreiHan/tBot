@@ -7,7 +7,7 @@ from forex_python.converter import CurrencyRates
 def get_rate():
     c = CurrencyRates()
     number = c.get_rate('RUB', 'USD')
-    return truncate(number, 8)
+    return truncate(number, 9)
 
 
 def get_date():

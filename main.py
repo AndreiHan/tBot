@@ -1,6 +1,5 @@
-from tools.Bot import Bot
+from tools.menu import main_menu
 
 # sys.stdout = open('logfile.log', 'w')
 
-bot = Bot()
-bot.main_loop()
+main_menu()

@@ -1,3 +1,4 @@
+import json
 import os.path
 from os import path
 
@@ -18,6 +19,32 @@ def return_json():
 
     # decrypting the file
     return fernet.decrypt(encrypted)
+
+
+def create_json():
+    status = \
+        {
+            "INIT": "True",
+            "API_Key": "abcdabcdabcdabcd",
+            "API_Key_Secret": "1332Q4TERWHTSHRJEUHTF",
+            "ACCESS_TOKEN": "1AEWERGFVDZFER",
+            "ACCESS_SECRET": "AFEWVDFGBDTGR"
+        }
+
+    credentials = ["API_Key", "API_Key_Secret", "ACCESS_TOKEN", "ACCESS_SECRET"]
+    print("Starting import ... \n \n")
+
+    for key in credentials:
+        info = str(input('Enter your ' + key + "  :"))
+        status[key] = info
+
+    json_object = json.dumps(status, indent=4)
+
+    # Writing to sample.json
+    with open("storage/KEY.json", "w") as outfile:
+        outfile.write(json_object)
+        print("\nCreated KEY.json\n")
+        outfile.close()
 
 
 def encrypt_json():
