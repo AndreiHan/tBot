@@ -13,7 +13,7 @@ def send():
         text = twitter_message.get_text()
         try:
             api.update_status(text)
-            print("Twitter send successful")
+            print("Tweet send successfuly")
             status.set_content(text)
             status.set_time(get_date())
             return True

@@ -24,7 +24,7 @@ def ask_yesno(question):
 
 def print_menu():
     menu_options = {
-        1: 'Enter the keys manually',
+        1: 'Enter the keys manually (will delete previous config)',
         2: 'Already created KEY.json',
         3: 'Exit'
     }

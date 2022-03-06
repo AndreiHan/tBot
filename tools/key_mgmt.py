@@ -21,7 +21,17 @@ def return_json():
     return fernet.decrypt(encrypted)
 
 
+def remove_files():
+    try:
+        os.remove("storage/key.key")
+        os.remove("storage/KEY-e.json")
+        os.remove("storage/status.json")
+    except FileNotFoundError:
+        pass
+
+
 def create_json():
+    remove_files()
     status = \
         {
             "INIT": "True",
