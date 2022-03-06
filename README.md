@@ -1,5 +1,5 @@
 # tBot
-Twitter Bot - every 24 hours send a tweet to the preconfigured account <br>
+Twitter Bot - every 24 hours it send a tweet to the preconfigured account <br>
 ### Setup
 1. Create KEY.json inside the storage folder: <br>
 ###### Note: The key is not stored as plain text. (after the first run, the file is encrypted)
