@@ -16,7 +16,7 @@ class Bot:
         while True:
             print("")
             print("Checking date...")
-            if status.check_date():
+            if not status.check_date():
                 twitter_connect.send()
             else:
                 print("")

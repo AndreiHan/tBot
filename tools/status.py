@@ -10,7 +10,7 @@ False if current date is different from json date
 
 def check_date():
     if get_time() == "none":
-        return True
+        return False
     else:
         return get_time() == get_info.get_date()
 
