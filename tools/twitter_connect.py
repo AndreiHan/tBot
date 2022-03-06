@@ -1,5 +1,6 @@
-import tweepy
 import json
+
+import tweepy
 
 from tools import twitter_message, status
 from tools.get_info import get_date
@@ -16,6 +17,12 @@ def send():
             status.set_content(text)
             status.set_time(get_date())
             return True
+        except SystemExit:
+            # clean-up
+            raise
+        except KeyboardInterrupt:
+            # clean-up
+            raise
         except:
             print("Tweet send failed")
 
@@ -35,6 +42,11 @@ def connect():
         print("Authentication OK")
         return api
 
+    except SystemExit:
+        # clean-up
+        raise
+    except KeyboardInterrupt:
+        # clean-up
+        raise
     except:
         print("Error during authentication")
-        return False

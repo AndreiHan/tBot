@@ -1,6 +1,7 @@
-from cryptography.fernet import Fernet
 import os.path
 from os import path
+
+from cryptography.fernet import Fernet
 
 
 def return_json():
@@ -20,32 +21,33 @@ def return_json():
 
 
 def encrypt_json():
-    if path.exists("storage/KEY.json"):
+    key_path = "storage/KEY.json"
+    secret_key_path = "storage/key.key"
+    encrypted_path = "storage/KEY-e.json"
+    if path.exists(key_path):
         try:
             # this generates a key and opens a file 'key.key' and writes the key there
             key = Fernet.generate_key()
-            with open('storage/key.key', 'wb') as file:
+            with open(secret_key_path, 'wb') as file:
                 file.write(key)
                 file.close()
             # this just opens your 'key.key' and assings the key stored there as 'key'
-            with open('storage/key.key', 'rb') as file:
+            with open(secret_key_path, 'rb') as file:
                 key = file.read()
                 file.close()
             # this opens your json and reads its data into a new variable called 'data'
-            with open('storage/KEY.json', 'rb') as f:
+            with open(key_path, 'rb') as f:
                 data = f.read()
                 f.close()
-                os.remove('storage/KEY.json')
+                os.remove(key_path)
             # this encrypts the data read from your json and stores it in 'encrypted'
             fernet = Fernet(key)
             encrypted = fernet.encrypt(data)
 
             # this writes your new, encrypted data into a new JSON file
-            with open('storage/KEY-e.json', 'wb') as f:
+            with open(encrypted_path, 'wb') as f:
                 f.write(encrypted)
                 f.close()
 
         except FileNotFoundError:
             pass
-    else:
-        pass
