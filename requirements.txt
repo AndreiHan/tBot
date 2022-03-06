@@ -1,2 +1,3 @@
 cryptography>=36.0.1
 tweepy>=4.6.0
+forex-python>=1.8
